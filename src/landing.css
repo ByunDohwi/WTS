@@ -1,0 +1,649 @@
+/* 메인 페이지 — Figma «메인페이지» (3:54) 기준 */
+
+.figma-main {
+  width: 100%;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+}
+
+.figma-canvas {
+  width: 100%;
+  max-width: 1512px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-inline: clamp(1rem, 5.2vw, 78px);
+}
+
+/* —— Hero (Frame 1, h 1004) —— */
+.figma-hero {
+  position: relative;
+  overflow: clip;
+  min-height: min(1004px, 100svh);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.figma-hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* hero-rectangle.png — 히어로 영역 오른쪽 위 모서리에 붙임 */
+.figma-hero__rect {
+  position: absolute;
+  top: clamp(-220px, -16vw, -96px);
+  right: clamp(-220px, -15vw, -88px);
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: min(1010px, 63vw);
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  object-position: right top;
+  line-height: 0;
+  /* 첫 진입 시 우상단 바깥에서 안쪽으로 들어오도록 설정 */
+  animation: hero-rect-enter 1.1s cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+.figma-hero__flower {
+  position: absolute;
+  left: -12%;
+  bottom: -8%;
+  width: min(689px, 46vw);
+  height: auto;
+  object-fit: contain;
+  filter: contrast(1.02) saturate(1.14);
+  opacity: 0.95;
+  /* 메인 좌하단 장식은 약간 늦게 들어오게 해서 레이어감을 줌 */
+  animation: hero-flower-enter 1.15s cubic-bezier(0.2, 0.9, 0.22, 1) 0.08s both;
+}
+
+.figma-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: clamp(5rem, 12vh, 6.5rem) clamp(1rem, 5.2vw, 78px) 2.5rem;
+  min-height: min(1004px, 100svh);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.figma-hero__line {
+  margin: 0;
+  color: #357af9;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.2rem, 10.5vw, 10rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.figma-hero__spring {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(0.1rem, 1vw, 1.25rem);
+  margin: clamp(-0.4rem, -0.8vw, -0.15rem) 0 0;
+  color: #357af9;
+  font-size: clamp(4rem, 13vw, 12.5rem);
+  line-height: 0.88;
+  letter-spacing: 0;
+}
+
+.figma-hero__spring-char {
+  display: inline-block;
+  color: #357af9;
+  font-size: 1em;
+  line-height: 0.9;
+}
+
+.figma-hero__spring-char--s {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8em;
+  transform: translateY(-0.02em);
+}
+
+.figma-hero__spring-char--p {
+  font-family: 'Prata', serif;
+  font-size: 1.02em;
+}
+
+.figma-hero__spring-char--r {
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  font-weight: 700;
+}
+
+.figma-hero__spring-char--i {
+  font-family: 'Protest Revolution', cursive;
+  transform: translateY(-0.02em) scaleY(1.04);
+}
+
+.figma-hero__spring-char--n {
+  font-family: 'Praise', cursive;
+  transform: translateY(-0.01em);
+}
+
+.figma-hero__spring-char--g {
+  font-family: 'Pragati Narrow', sans-serif;
+  font-weight: 700;
+}
+
+.figma-hero__sub {
+  align-self: flex-end;
+  margin: clamp(2rem, 6vh, 5rem) 0 0;
+  max-width: 1104px;
+  color: #35353d;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4.2vw, 5rem);
+  line-height: 1.19;
+  text-align: right;
+  white-space: pre-line;
+}
+
+@keyframes hero-rect-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(9vw, -8vw, 0) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes hero-flower-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(-8vw, 8vw, 0) scale(0.92);
+  }
+
+  to {
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .figma-hero__spring {
+    gap: clamp(0.04rem, 0.7vw, 0.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figma-hero__rect,
+  .figma-hero__flower {
+    animation: none;
+  }
+}
+
+/* —— IoC page —— */
+.ioc-page-shell {
+  background: #fff;
+}
+
+.ioc-page {
+  width: 100%;
+  background: #fff;
+}
+
+.ioc-hero {
+  position: relative;
+  overflow: clip;
+  min-height: 904px;
+  padding-top: 95px;
+  box-sizing: border-box;
+}
+
+.ioc-hero__art {
+  position: absolute;
+  top: clamp(-16rem, -18vw, -5rem);
+  right: clamp(-18rem, -14vw, -4rem);
+  width: min(88vw, 1100px);
+  max-width: none;
+  opacity: 0.8;
+  filter: blur(7.5px);
+  transform: rotate(52.96deg);
+  pointer-events: none;
+  /* IoC 진입 시에도 메인과 같은 방향성의 장식 진입 애니메이션 적용 */
+  animation: ioc-hero-art-enter 1.15s cubic-bezier(0.2, 0.9, 0.22, 1) both;
+}
+
+.ioc-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 60px 28px 0;
+  box-sizing: border-box;
+}
+
+.ioc-hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  color: #0c0d1c;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  font-size: clamp(4.5rem, 13.2vw, 12.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+}
+
+.ioc-hero__kicker {
+  margin: clamp(2rem, 5vw, 2.625rem) 0 0 auto;
+  width: fit-content;
+  color: #357af9;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  font-size: clamp(2rem, 5.3vw, 5rem);
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+.ioc-section {
+  padding: 0 0 clamp(4rem, 7vw, 6rem);
+}
+
+.ioc-section--concept {
+  background: #357af9;
+  padding: 42px 0 68px;
+}
+
+.ioc-section__inner {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 5.2vw, 75px);
+  box-sizing: border-box;
+}
+
+.ioc-section__title {
+  margin: 0 0 0.75rem;
+  color: #357af9;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  font-size: clamp(1.9rem, 4.2vw, 4rem);
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+}
+
+.ioc-section__title--light {
+  color: #fff;
+}
+
+.ioc-section__title--right {
+  text-align: right;
+}
+
+.ioc-section__body {
+  margin: 0;
+  color: #000;
+  font-family:
+    'Pretendard',
+    var(--sans),
+    system-ui,
+    sans-serif;
+  max-width: 1240px;
+  font-size: clamp(1rem, 1.8vw, 2rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  word-break: keep-all;
+}
+
+.ioc-section__body--light {
+  color: #fff;
+}
+
+.ioc-section__body--right {
+  text-align: right;
+}
+
+.ioc-section--right .ioc-section__inner {
+  max-width: 1408px;
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.ioc-section:not(.ioc-section--concept):not(.ioc-section--right) .ioc-section__inner {
+  max-width: 1408px;
+}
+
+.ioc-section--last {
+  padding-bottom: clamp(4rem, 7vw, 5.5rem);
+}
+
+@keyframes ioc-hero-art-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(10vw, -8vw, 0) rotate(52.96deg) scale(0.92);
+  }
+
+  to {
+    opacity: 0.8;
+    transform: translate3d(0, 0, 0) rotate(52.96deg) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .ioc-hero {
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .ioc-hero__art {
+    top: -2rem;
+    right: -7rem;
+    width: min(95vw, 680px);
+  }
+
+  .ioc-hero__inner {
+    padding-inline: 20px;
+  }
+
+  .ioc-hero__kicker {
+    margin-top: 1.75rem;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .ioc-section__title--right,
+  .ioc-section__body--right {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ioc-hero__art {
+    animation: none;
+  }
+}
+
+/* —— Intro band (#357af9) —— */
+.figma-intro {
+  background: #357af9;
+  color: #fff;
+}
+
+.figma-intro__inner {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 3.4rem) clamp(1rem, 5.2vw, 78px) clamp(3.5rem, 8vw, 5.5rem);
+  box-sizing: border-box;
+}
+
+.figma-intro__inner h2 {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.4vw, 4rem);
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+}
+
+.figma-intro__inner p {
+  margin: 1.1rem 0 0;
+  max-width: 1297px;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.85vw, 2rem);
+  line-height: 1.42;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* —— Spring vs SpringBoot —— */
+.figma-compare {
+  position: relative;
+  background: #fff;
+  padding: clamp(3rem, 7vw, 6.5rem) 0;
+}
+
+.figma-compare__inner {
+  position: relative;
+  max-width: 1512px;
+  margin: 0 auto;
+  min-height: clamp(20rem, 31vw, 26.9375rem);
+  padding-inline: clamp(1rem, 5.2vw, 78px);
+  box-sizing: border-box;
+}
+
+.figma-compare__image-wrap {
+  position: absolute;
+  left: clamp(-6rem, -6.4vw, -1.5rem);
+  top: clamp(3rem, 4vw, 6rem);
+  z-index: 0;
+  width: min(513.85px, 36vw);
+  filter: blur(5px);
+  opacity: 0.7;
+  transform: rotate(-6.96deg);
+}
+
+.figma-compare__image-wrap img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: contrast(1.08) saturate(1.23) brightness(0.96);
+}
+
+.figma-compare__title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 clamp(1.5rem, 2.3vw, 2.4rem);
+  text-align: right;
+  color: #357af9;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.4vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.figma-compare__body {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: min(100%, 1407px);
+  margin-left: auto;
+  color: #35353d;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.85vw, 2rem);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
+  text-align: right;
+  word-break: keep-all;
+}
+
+.figma-compare__body p {
+  margin: 0;
+}
+
+.figma-compare__body p + p {
+  margin-top: clamp(1.5rem, 4vw, 2.6rem);
+}
+
+.figma-compare__body strong {
+  font-weight: 700;
+}
+
+/* —— 핵심 개념 —— */
+.figma-concepts {
+  position: relative;
+  background: #fff;
+  padding: clamp(4rem, 10vw, 8.5rem) 0 clamp(5rem, 12vw, 10rem);
+  overflow: clip;
+}
+
+.figma-concepts__decor {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.8;
+  object-fit: contain;
+  max-width: min(616px, 45vw);
+  height: auto;
+}
+
+.figma-concepts__decor--left {
+  left: -4%;
+  top: 18%;
+  width: min(615px, 42vw);
+}
+
+.figma-concepts__decor--right {
+  right: -6%;
+  bottom: 8%;
+  width: min(713px, 48vw);
+}
+
+.figma-concepts__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 5.2vw, 78px);
+  box-sizing: border-box;
+}
+
+.figma-concepts__title {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+}
+
+.figma-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 1294px;
+  margin: 0 auto;
+}
+
+.figma-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 1.5rem;
+  align-items: end;
+  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.25rem, 2.5vw, 2.3rem);
+  border-radius: 10px;
+  background: rgba(253, 253, 253, 0.2);
+  border: 1px solid rgba(53, 122, 249, 0.12);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.figma-card:hover,
+.figma-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(53, 122, 249, 0.12);
+}
+
+.figma-card:focus-visible {
+  outline: 2px solid #357af9;
+  outline-offset: 3px;
+}
+
+.figma-card__title {
+  margin: 0;
+  color: #357af9;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+}
+
+.figma-card__summary {
+  margin: 0.5rem 0 0;
+  color: #35353d;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.25vw, 1.3rem);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.figma-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #357af9;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  line-height: 1.19;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.figma-card__cta svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .figma-card {
+    grid-template-columns: 1fr;
+  }
+
+  .figma-card__cta {
+    justify-self: start;
+  }
+
+  .figma-compare__inner {
+    min-height: auto;
+  }
+
+  .figma-compare__image-wrap {
+    left: clamp(-2rem, -5vw, -0.5rem);
+    top: clamp(6rem, 10vw, 8rem);
+    width: min(280px, 52vw);
+  }
+
+  .figma-compare__title,
+  .figma-compare__body {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .figma-concepts__decor {
+    display: none;
+  }
+}
